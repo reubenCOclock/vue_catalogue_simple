@@ -2,7 +2,7 @@
 <template>
 <div>
         
-  <Event :events="events" type="Sportifs"/>     
+  <ListEvents :events="events" type="Sportifs"/>     
  <div v-if="isAddEventAllowed"> 
     <h4 class="text-center"> Ajouter un autre evenment sportif </h4>
     
@@ -66,18 +66,18 @@
 <script>
 
 import  VueMultiSelect from 'vue-multiselect';
-import Event from "./Event.vue"
+import ListEvents from "./ListEvents.vue"
 export default {
     name:"CreateSportEvent",
-    components:{VueMultiSelect,Event},
+    components:{VueMultiSelect,ListEvents},
     data(){
         return {
             events:[],
             title:"",
             description:"",
             date:null,
-            selectedSports:[],
-            optionsSports:[{name:"Tennis"},{name:"Kitesurf"},{name:"Golf"},{name:"Surf"},{name:"Football"},{name:"Basketabll"}],
+            selectedOptions:[],
+            options:[{name:"Tennis"},{name:"Kitesurf"},{name:"Golf"},{name:"Surf"},{name:"Football"},{name:"Basketabll"}],
             maximumAllowedEvents:5
         }
     },
@@ -85,7 +85,7 @@ export default {
 
     computed:{
         isAddEventAllowed(){
-            console.log("Computed being called")
+            
             return this.events.length<this.maximumAllowedEvents;
         },
 
@@ -95,10 +95,10 @@ export default {
     },
 
     methods:{
-        addSportingEvent(event){
+        addEvent(event){
             event.preventDefault();
             const eventsCopy=[...this.events];
-            eventsCopy.push({title:this.title,description:this.description,activites:this.selectedSports,date:this.date});
+            eventsCopy.push({title:this.title,description:this.description,activites:this.selectedOptions,date:this.date});
             this.events=eventsCopy;
             this.clearData();
         },
@@ -122,3 +122,5 @@ export default {
         font-weight:bold;
     }
 </style>
+
+

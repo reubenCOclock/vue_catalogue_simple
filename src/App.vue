@@ -11,8 +11,8 @@
       <h2 class="text-center"> Mes Activités </h2>
      
    <div class="d-flex justify-content-between">
-      <button @click="$router.push('/event/sports')" class="btn btn-primary"> Annuaire activités sportifs </button>
-      <button @click="$router.push('/event/books')" class="btn btn-primary"> Annuaire activités lecture  </button>
+      <button @click="$router.push('/event?topic=sports')" class="btn btn-primary"> Annuaire activités sportifs </button>
+      <button @click="$router.push('/event/?topic=books')" class="btn btn-primary"> Annuaire activités lecture  </button>
     </div>
     <router-view> </router-view>
   </div>

@@ -1,5 +1,6 @@
  
 <template>
+
 <div>
         
   <Event :events="events" type="Lecture"/>     
@@ -66,7 +67,7 @@
 <script>
 
 import  VueMultiSelect from 'vue-multiselect';
-import Event from "./Event.vue"
+import Event from "./ListEvents.vue"
 export default {
     name:"CreateBookEvent",
     components:{VueMultiSelect,Event},
@@ -76,8 +77,8 @@ export default {
             title:"",
             description:"",
             date:null,
-            selectedBooks:[],
-            optionsBooks:[{name:"Au revoir de la haut"},{name:"1991"},{name:"L'ame du mal"},{name:"Rever"},{name:"Glacé"},{name:"Le Manuscrit Inachevé"}],
+            selectedOptions:[],
+            options:[{name:"Au revoir de la haut"},{name:"1991"},{name:"L'ame du mal"},{name:"Rever"},{name:"Glacé"},{name:"Le Manuscrit Inachevé"}],
             maximumAllowedEvents:5
         }
     },
@@ -122,3 +123,4 @@ export default {
         font-weight:bold;
     }
 </style>
+
